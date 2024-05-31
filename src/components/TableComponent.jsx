@@ -31,36 +31,34 @@ const TableComponent = () => {
     <>
     <div>Table</div>
     <h5>Nagios status</h5>
-         { contenidoArchivo.map( el => ( <li key={el.host_name} > {el.host_name } </li> ) ) } 
-         {/*contenidoArchivo*/}
-
          <Table striped bordered hover size="sm">
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th>Hostname</th>
+          <th>Servicio</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+      {/* contenidoArchivo.map( el => ( <li key={el.host_name} > {el.host_name } </li> ) ) */} 
+         {/*contenidoArchivo*/}
+         {contenidoArchivo.map(({ host_name, service_description, plugin_output }, i) => (
+                  <tr
+                    key={i}
+                    className="align-middle" >
+                    <td> * </td>
+                    <td> {host_name} </td>
+                    <td> {service_description} </td>
+                    <td> {plugin_output}</td>
+                    {/*<td> {tipo_doc} </td>
+                    <td> {number_doc} </td>
+                    <td> {monto} </td>
+                    <td> {saldo}</td>*/}
+                  </tr>
+                ))}
+
+
       </tbody>
     </Table>
     
