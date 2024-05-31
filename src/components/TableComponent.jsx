@@ -3,7 +3,9 @@ import Table from 'react-bootstrap/Table';
 
 const TableComponent = () => {
 
-    const [contenidoArchivo, setContenidoArchivo] = useState([]);
+    const [contenidoArchivoHosts, setContenidoArchivoHosts] = useState([]);
+    
+
   const url= './../public/status.json';
   
   useEffect(() => {
@@ -15,7 +17,7 @@ const TableComponent = () => {
           const response = await fetch(url);
           const data = await response.json();
           console.log(data)
-          setContenidoArchivo(data)
+          setContenidoArchivoHosts(data)
         } else {
           console.error('Error al cargar el archivo.');
         }
@@ -34,25 +36,22 @@ const TableComponent = () => {
          <Table striped bordered hover size="sm">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Hostname</th>
+          <th>Nombre</th>
           <th>Servicio</th>
+          <th>Detalle</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
-      {/* contenidoArchivo.map( el => ( <li key={el.host_name} > {el.host_name } </li> ) ) */} 
-         {/*contenidoArchivo*/}
-         {contenidoArchivo.map(({ host_name, service_description, plugin_output }, i) => (
+         {contenidoArchivoHosts.map(({ host_name, service_description, plugin_output, current_state }, i) => (
                   <tr
                     key={i}
                     className="align-middle" >
-                    <td> * </td>
                     <td> {host_name} </td>
                     <td> {service_description} </td>
                     <td> {plugin_output}</td>
-                    {/*<td> {tipo_doc} </td>
-                    <td> {number_doc} </td>
+                    <td> {current_state} </td>
+                    {/*<td> {number_doc} </td>
                     <td> {monto} </td>
                     <td> {saldo}</td>*/}
                   </tr>
