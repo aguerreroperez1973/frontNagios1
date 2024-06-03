@@ -1,13 +1,8 @@
-//import React from 'react'
-import CardComponent from "../components/CardComponent"
-import TableComponent from "../components/TableComponent"
+import Gallery from "../components/Gallery"
 
 const Home = () => {
   return (
-    <div>
-      <CardComponent></CardComponent>
-      <TableComponent></TableComponent>
-    </div>
+      <Gallery />
   )
 }
 

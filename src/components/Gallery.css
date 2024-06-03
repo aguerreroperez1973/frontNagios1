@@ -6,4 +6,5 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-top: 10px;
+    font-size: 10px;
    }

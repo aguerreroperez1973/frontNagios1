@@ -1,54 +1,40 @@
-import { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
-import './../components/';
+import { useContext } from 'react';
+import { Context } from './../context/Context.jsx';
+import './CardComponent.css';
 
-const CardComponent = () => {
+const CardComponent = ( { dataHost } ) => {
 
-    const [contenidoArchivoHosts, setContenidoArchivoHosts] = useState([]);
-    const url= './../public/status.json';
-  
-  useEffect(() => {
-
-    const leerArchivoDeTexto = async () => {
-      try {
-        const response = await fetch('./../public/status.json');
-        if (response.ok) {
-          const response = await fetch(url);
-          const data = await response.json();
-          console.log(data)
-          setContenidoArchivoHosts(data)
-        } else {
-          console.error('Error al cargar el archivo.');
-        }
-      } catch (error) {
-        console.error('Error: ', error);
-      }
-    };
-
-    leerArchivoDeTexto();
-  }, []);
- 
+  const { dataServices } = useContext(Context);
+  const alertData = [
+    {id:0, name:'OK', color:'alert-success'},
+    {id:1, name:'WARNING', color:'alert-warning'},
+    {id:2, name:'CRITICAL', color:'alert-danger'},
+    {id:3, name:'UNKNOWN', color:'alert-info'}
+  ]
 
   return (
     <>
-    <div className="gallery" >
-      <div>CardComponent</div>
-        <div>
-            {contenidoArchivoHosts.map(({ host_name, service_description, plugin_output, current_state }, i) => (
-            <Card style={{ width: '18rem' }}  key={i} >
-            
+            <Card bg="light" style={{ width: '18rem' }} className="mb-2" >
               <Card.Body>
-                <Card.Title>{host_name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Status: {current_state}</Card.Subtitle>
-                <Card.Text> {service_description} </Card.Text>
-                <Card.Text> {plugin_output} </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <Card.Title className={ alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.color}) } key={dataHost.host_name}>  
+                <strong style={{ fontSize:12}}>{dataHost.host_name}</strong></Card.Title>
+                <Card.Subtitle className={ alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.color}) }>
+                  <strong style={{ fontSize:11}}>{alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.name})}</strong></Card.Subtitle>
+                <Card.Text className={ alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.color}) } > <strong>Status: </strong>{dataHost.plugin_output}</Card.Text>
+              <div>
+                    {  dataServices.filter( (el) => el.host_name == dataHost.host_name )
+                        .map( (p,i) => { 
+                          return <Card.Text className={ alertData.filter( (co) => co.id == p.current_state ).map( (a) => { return a.color} )} key={i}> 
+                              <strong>Service:</strong> {p.service_description}  &nbsp; 
+                              <strong>Status:</strong> { alertData.filter( (co) => co.id == p.current_state ).map( (a) => { return a.name} )}
+                          </Card.Text> })
+                    }
+                </div> <br />
+                <div className="m-0 p-0" ><Card.Link href="#">Card Link</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link></div>
               </Card.Body>
-
-            </Card>))}
-        </div>
-      </div>
+            </Card>
     </>
   )
 }
