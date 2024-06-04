@@ -4,7 +4,7 @@ export const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
 
-    const url= "./../../public/status.json";
+    const url= "./public/status.json";
     const [dataHosts, setDataHosts] = useState([]);
     const [dataServices, setDataServices] = useState([]);
     
@@ -12,9 +12,11 @@ const ContextProvider = ({ children }) => {
             await fetch(url)
             .then((response) => response.json())
             .then((data) => { 
-                //console.log(data)
                 setDataHosts(data.hosts)
-                setDataServices(data.services)})
+                setDataServices(data.services)
+                //console.log(data.hosts)
+                //console.log(data.services)
+            })
             .catch((err) => {console.log(err);})
         };
             

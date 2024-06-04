@@ -1,19 +1,15 @@
 //import { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import Home from './views/Home'
 import NavbarComponent from './components/NavbarComponent';
+import Gallery from './components/Gallery';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>  
-        <NavbarComponent></NavbarComponent>   
-              <Routes>
-                <Route path="/" element={<Home></Home>}/>
-              </Routes>
-          </BrowserRouter> 
+      <NavbarComponent></NavbarComponent> 
+      <Gallery></Gallery>
     </>
   )
 }
