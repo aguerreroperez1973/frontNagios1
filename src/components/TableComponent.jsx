@@ -4,8 +4,6 @@ import Table from 'react-bootstrap/Table';
 const TableComponent = () => {
 
     const [contenidoArchivoHosts, setContenidoArchivoHosts] = useState([]);
-    
-
   const url= './../public/status.json';
   
   useEffect(() => {

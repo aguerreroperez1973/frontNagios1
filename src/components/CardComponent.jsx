@@ -1,10 +1,13 @@
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from './../context/Context.jsx';
 import './CardComponent.css';
 
 const CardComponent = ( { dataHost } ) => {
   
+  const navigate = useNavigate();
+
   const { dataServices } = useContext(Context);
   const alertData = [
     {id:0, name:'OK', color:'alert-success'},
@@ -13,6 +16,11 @@ const CardComponent = ( { dataHost } ) => {
     {id:3, name:'UNKNOWN', color:'alert-info'}
   ]
   //console.log(dataServices)
+
+  const handleHost = () => {
+    navigate(`/host/${dataHost.host_name}`)
+  }
+
   return (
     <>
             <Card bg="light" style={{ width: '18rem' }} className="mb-2" >
@@ -31,8 +39,8 @@ const CardComponent = ( { dataHost } ) => {
                           </Card.Text> })
                     }
                 </div> <br />
-                <div className="m-0 p-0" ><Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link></div>
+                <div className="m-0 p-0" ><Card.Link href="#" onClick={handleHost}>Card Link</Card.Link>
+                <Card.Link href="#" onClick={handleHost}>Another Link</Card.Link></div>
               </Card.Body>
             </Card>
                   
