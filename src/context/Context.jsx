@@ -4,7 +4,7 @@ export const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
 
-    const url= "./status.json";
+    const url= "./../status.json";
     const [dataHosts, setDataHosts] = useState([]);
     const [dataServices, setDataServices] = useState([]);
     

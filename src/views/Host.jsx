@@ -1,8 +1,11 @@
 import React from 'react'
+import TableComponent from '../components/TableComponent'
 
 const Host = () => {
   return (
-    <center><div><h2>Detalle del sitio </h2></div></center>
+    <>
+                   <TableComponent />
+    </>
   )
 }
 

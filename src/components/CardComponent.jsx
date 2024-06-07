@@ -7,6 +7,7 @@ import './CardComponent.css';
 const CardComponent = ( { dataHost } ) => {
   
   const navigate = useNavigate();
+  const nagios="http://incotel.ddns.net:8081/nagios/cgi-bin/status.cgi?host=";
 
   const { dataServices } = useContext(Context);
   const alertData = [
@@ -39,8 +40,8 @@ const CardComponent = ( { dataHost } ) => {
                           </Card.Text> })
                     }
                 </div> <br />
-                <div className="m-0 p-0" ><Card.Link href="#" onClick={handleHost}>Card Link</Card.Link>
-                <Card.Link href="#" onClick={handleHost}>Another Link</Card.Link></div>
+                <div className="m-0 p-0" ><Card.Link href="" onClick={handleHost}>Card Link</Card.Link>
+                <Card.Link href={nagios+dataHost.host_name} >Another Link</Card.Link></div>
               </Card.Body>
             </Card>
                   
