@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar } from 'react-bootstrap'
 
 const NavbarComponent = () => {
@@ -5,7 +6,7 @@ const NavbarComponent = () => {
     <Container>
       <Navbar className="navbar bg-primary" data-bs-theme="dark" >
         <Container>
-          <Navbar.Brand href="#">Monitoreo de Sitios</Navbar.Brand>
+          <Navbar.Brand href="/home"> Monitoreo de Sitios </Navbar.Brand>
         </Container>
       </Navbar>
     </Container>

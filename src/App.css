@@ -47,13 +47,10 @@
 }
 
 /*/////////////////////////////////////*/
-/*.container{
- margin: 0px;
- padding: 0;
-}*/
-.navbar{
+
+/*.navbar{
+  width: 1000px;
   margin: 0;
   padding: 0;
   padding: 0.5rem 6rem;
-  font-style: white;
-}
+}*/

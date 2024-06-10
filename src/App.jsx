@@ -16,8 +16,9 @@ function App() {
       <NavbarComponent /> 
             {/*<Gallery></Gallery>*/}
               <Routes>
-                <Route path="/" element={<Home></Home>}/>
-                <Route path="/host/" element={<Host />} />
+                <Route path="/*" element={<Home></Home>}/>
+                <Route path="/home" element={<Home></Home>}/>
+               {/*} <Route path="*dist/host" element={<Host />} />*/}
                 <Route path="/host/:hostname" element={<Host />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

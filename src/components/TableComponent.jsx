@@ -1,12 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import { useContext} from 'react';
 import { Context } from './../context/Context.jsx';
 import { useParams } from 'react-router-dom';
 import './TableComponent.css';
+import { Button, Card, ListGroup } from 'react-bootstrap';
 
 const TableComponent = () => {
 
-  const { dataServices } = useContext(Context);
+  const { dataServices, dataHosts } = useContext(Context);
   const { hostname } = useParams();
 
   const alertData = [
@@ -18,30 +18,20 @@ const TableComponent = () => {
   
   return (
     <>
-      <h5> Estado: {hostname}</h5>
-         <Table striped bordered hover size="sm" className='table'>
-            <thead>
-              <tr>
-                {/*<th>Nombre</th>*/}
-                <th>Servicio</th>
-                <th>Detalle</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataServices.filter( (p) => p.host_name == hostname).map(({ host_name, service_description, plugin_output, current_state }, i) => (
-                        <tr
-                          key={i}
-                          className="align-middle" >
-                          {/*<td> {host_name} </td>*/}
-                          <td> {service_description} </td>
-                          <td> {plugin_output}</td>
-                          <td> {current_state} </td>
-                        </tr>
-                      ))}
-            </tbody>
-        </Table>
-    
+      <div className="galleryCard" >
+        { dataServices.filter( el => el.host_name==hostname).map( ({ service_description, plugin_output, current_state, last_check },i)  =>(
+          
+          <Card className="text-bg-danger"  style={{ width: '15rem'}} key={i}>
+            <Card.Header ><h5>{service_description}</h5></Card.Header>
+            <ListGroup variant="flush" className="mx-auto list-group-item-danger">
+              <ListGroup.Item><strong>Status Information: </strong> {plugin_output} </ListGroup.Item>
+              <ListGroup.Item><strong>Status:             </strong> {current_state} </ListGroup.Item>
+              <ListGroup.Item><strong>Last Check:         </strong> {last_check}    </ListGroup.Item>
+            </ListGroup>
+          </Card>
+      
+        ))}
+      </div>
     </>
   )
 }
