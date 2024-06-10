@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from './../context/Context.jsx';
 import './CardComponent.css';
+import WebRTU from './WebRTU.jsx';
 
 const CardComponent = ( { dataHost } ) => {
   
@@ -25,6 +26,10 @@ const CardComponent = ( { dataHost } ) => {
   return (
     <>
             <Card bg="light" style={{ width: '18rem' }} className="mb-2" >
+          {/*//////////////////////////////////////////////////////////////////*/}
+           {/* <iframe src="http://192.168.0.240" width="100%" height="180rem"></iframe> */}
+             {/* <WebRTU></WebRTU>*/}
+            {/*//////////////////////////////////////////////////////////////////*/}
               <Card.Body>
                 <Card.Title className={ alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.color}) } key={dataHost.host_name}>  
                 <strong>{dataHost.host_name}</strong></Card.Title>
