@@ -4,7 +4,7 @@ import TableComponent from '../components/TableComponent'
 const Host = () => {
   return (
     <>
-                   <TableComponent />
+        <TableComponent />
     </>
   )
 }
