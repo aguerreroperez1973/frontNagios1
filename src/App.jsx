@@ -7,6 +7,7 @@ import Home from './views/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Host from './views/Host';
 import NotFound from './views/NotFound';
+import RtuPage from './views/rtupage';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
               <Routes>
                 <Route path="/*" element={<Home></Home>}/>
                 <Route path="/home" element={<Home></Home>}/>
-               {/*} <Route path="*dist/host" element={<Host />} />*/}
+                <Route path='/rtupage/:hostname' element={ <RtuPage></RtuPage>}/>
                 <Route path="/host/:hostname" element={<Host />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

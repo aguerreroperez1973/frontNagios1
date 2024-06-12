@@ -1,19 +1,22 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
+import { Context } from './../context/Context.jsx';
 
-const rtupage = () => {
+const RtuPage = () => {
+  const nagios="http://incotel.ddns.net:8081/nagios/cgi-bin/status.cgi?host=";
+  const { hostname } = useParams();
+  console.log(hostname)
   return (
     <div>
         <iframe 
-        width="860"
-        height="484"
-        src="http://192.168.0.241"
-        title="RTU de sitio SFM4"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        
+            width="1000"
+            height="500"
+            src={nagios+hostname}
+            title="RTU de sitio SFM4"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
     </div>
   )
 }
 
-export default rtupage
+export default RtuPage
