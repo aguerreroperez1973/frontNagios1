@@ -1,14 +1,13 @@
 import Card from 'react-bootstrap/Card';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from './../context/Context.jsx';
 import './CardComponent.css';
-import WebRTU from './WebRTU.jsx';
 import { Button } from 'react-bootstrap';
 
 const CardComponent = ( { dataHost } ) => {
   
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const urlImg= "./../../public/"
 
   const { dataServices, localdatos } = useContext(Context);
@@ -19,20 +18,13 @@ const CardComponent = ( { dataHost } ) => {
     {id:3, name:'UNKNOWN', color:'alert-danger'}
   ]
 
-  const handleHost = () => {
-    navigate(`/host/${dataHost.host_name}`)
-  }
-
-  const handleNagios = () => {
-    navigate(`/rtupage/${dataHost.host_name}`)
-  }
-
   return (
     <>
           <Card bg="light" style={{ width: '18rem' }} className="mb-2" >
-            <a href={ localdatos.filter( (name) => name.hostname == dataHost.host_name ).map( (d) => { return d.ipadd}) }>
+           {/* <a href={ localdatos.filter( (name) => name.hostname == dataHost.host_name ).map( (d) => { return "http://"+d.ipadd}) }>
               <Card.Img variant="top" src={ localdatos.filter( (name) => name.hostname == dataHost.host_name ).map( (d) => { return d.img}) }></Card.Img>
-              </a>
+              </a>*/}
+              <Link to={ `RtuPage/${dataHost.host_name}` }><Card.Img variant="top" src={ localdatos.filter( (name) => name.hostname == dataHost.host_name ).map( (d) => { return d.img}) }></Card.Img></Link> 
               <Card.Body>
                 <Card.Title className={ alertData.filter( (co) => co.id == dataHost.current_state ).map( (d) => { return d.color}) } key={dataHost.host_name}>  
                 <strong>{dataHost.host_name}</strong></Card.Title>
@@ -49,11 +41,14 @@ const CardComponent = ( { dataHost } ) => {
                           </Card.Text> })
                     }
                 </div> <br />
-                <div className="m-0 p-0" >
-                  <Card.Link href="" onClick={handleHost}>Card Link</Card.Link>
-                  <Card.Link href="" onClick={handleNagios} >Another Link</Card.Link>
+                <div className="m-0 p-0 d-flex justify-content-around" >
+                  <Link to={`host/${dataHost.host_name}`}> <h6>Detalles</h6></Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <Link to={`NagiosPage/${dataHost.host_name}`}> <h6>Ir a NAGIOS</h6></Link>
                 </div>
               </Card.Body>
+              <Card.Footer className="text-muted">
+              <Button variant="primary" title="Apertura de puerta" size="sm">Acceso</Button>
+              </Card.Footer>
             </Card>
                   
     </>

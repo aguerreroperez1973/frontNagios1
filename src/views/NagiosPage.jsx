@@ -1,22 +1,22 @@
-import { useContext } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom';
 import { Context } from './../context/Context.jsx';
 
-const RtuPage = () => {
-  const { localdatos } = useContext(Context);
-  const { hostname } = useParams();  
+const NagiosPage = () => {
+  const nagios="http://incotel.ddns.net:8081/nagios/cgi-bin/status.cgi?host=";
+  const { hostname } = useParams();
   console.log(hostname)
   return (
     <div>
         <iframe 
             width="1000"
             height="500"
-            src={ localdatos.filter( (name) => name.hostname == hostname ).map( (d) => { return "http://"+d.ipadd}) }
-            title="RTU de sitio SFM4"
+            src={nagios+hostname}
+            title="RTU WEB"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
     </div>
   )
 }
 
-export default RtuPage
+export default NagiosPage
