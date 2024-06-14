@@ -1,13 +1,11 @@
 import { createContext, useState, useEffect } from 'react'
 
-
-
 export const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
 
-    //const url= "./../../status.json";
-    const url= "./status.json";
+    const url= "./../../status.json";
+    //const url= "./status.json";
     const [dataHosts, setDataHosts] = useState([]);
     const [dataServices, setDataServices] = useState([]);
     const [localdatos] = useState([

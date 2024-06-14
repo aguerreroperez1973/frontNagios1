@@ -13,10 +13,13 @@
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "cros": "^1.0.1",
+    "express": "^4.19.2",
+    "net-snmp": "^3.11.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "snmp-native": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

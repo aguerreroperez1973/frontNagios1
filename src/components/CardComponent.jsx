@@ -47,7 +47,7 @@ const CardComponent = ( { dataHost } ) => {
                 </div>
               </Card.Body>
               <Card.Footer className="text-muted">
-              <Button variant="primary" title="Apertura de puerta" size="sm">Acceso</Button>
+             
               </Card.Footer>
             </Card>
                   
