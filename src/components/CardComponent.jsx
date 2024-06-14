@@ -1,9 +1,11 @@
 import Card from 'react-bootstrap/Card';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from './../context/Context.jsx';
 import './CardComponent.css';
+import OpenDoor from './OpenDoor.jsx';
 import { Button } from 'react-bootstrap';
+
 
 const CardComponent = ( { dataHost } ) => {
   
@@ -47,7 +49,7 @@ const CardComponent = ( { dataHost } ) => {
                 </div>
               </Card.Body>
               <Card.Footer className="text-muted">
-             
+                     {/* <OpenDoor></OpenDoor>*/}
               </Card.Footer>
             </Card>
                   

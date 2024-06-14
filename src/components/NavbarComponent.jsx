@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => {
   return (  
@@ -7,7 +8,7 @@ const NavbarComponent = () => {
           <Container>
             <Navbar className="navbar bg-primary" data-bs-theme="dark" >
               <Container>
-                <Navbar.Brand href="/" > Monitoreo de Sitios </Navbar.Brand>
+                <Navbar.Brand href="/dist" > Monitoreo de Sitios </Navbar.Brand>
                 <Navbar.Brand href="http:///192.168.0.12/nagios">
                 <img
                   src="./../../public/sblogo.png"
