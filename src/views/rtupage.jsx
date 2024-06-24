@@ -1,11 +1,10 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom';
-import { Context } from './../context/Context.jsx';
+import { Context } from '../context/Context.jsx';
 
 const RtuPage = () => {
   const { localdatos } = useContext(Context);
   const { hostname } = useParams();  
-  console.log(hostname)
   return (
     <div>
         <iframe 
