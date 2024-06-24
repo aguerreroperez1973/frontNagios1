@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import { Button } from 'react-bootstrap'
 //import useScript from 'hooks/useScript';
 //import snmp from 'snmp-native';
@@ -8,6 +8,9 @@ function OpenDoor() {
 
 const HandleClick = () => {
     const script = document.createElement('script');
+    script.src = "../scritpS/snmpCommand.js";
+    script.async = true;
+    document.body.appendChild(script);
 }
 
   return (

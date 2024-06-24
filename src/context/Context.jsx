@@ -13,6 +13,23 @@ const ContextProvider = ({ children }) => {
         {id:1, hostname:"RTU_SFM3", img:"RTU_SFM3.png", ipadd:"192.168.0.241"},
         {id:2, hostname:"NAGIOS", img:"NAGIOS.png", ipadd:"192.168.0.12/nagios"}
     ])
+
+    const dataSite = [
+        {id:0, host_name:'SFM1', current_state:'PENDING'},
+        {id:1, host_name:'SFM2',  current_state:'PENDING'},
+        {id:2, host_name:'VALVULAS1',  current_state:'PENDING'},
+        {id:3, host_name:'VALVULAS2',  current_state:'PENDING'},
+        {id:4, host_name:'VALVULAS3',  current_state:'PENDING'},
+        {id:5, host_name:'SFM3',  current_state:'PENDING'},
+      ]
+
+    const alertData = [
+        {id:0, name:'OK', color:'alert alert-success', subname:'UP'},
+        {id:1, name:'WARNING', color:'alert alert-warning', subname:'DOWN'},
+        {id:2, name:'CRITICAL', color:'alert alert-danger', subname:'DOWN'},
+        {id:3, name:'UNKNOWN', color:'alert alert-danger', subname:'DOWN'},
+        {id:4, name:'PENDING', color:'alert alert-info', subname:'DOWN'}
+      ]
     
         const consultarApi = async () => {  
             await fetch(url)
@@ -31,7 +48,7 @@ const ContextProvider = ({ children }) => {
       setTimeout(()=>{ consultarApi(); }, 10000);
       
           return (
-                  < Context.Provider value={{dataHosts, dataServices, localdatos}} > {children} </Context.Provider>
+                  < Context.Provider value={{dataHosts, dataServices, localdatos, dataSite, alertData}} > {children} </Context.Provider>
           )
 ///////////   
 }
