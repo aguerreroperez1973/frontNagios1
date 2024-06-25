@@ -15,12 +15,12 @@ const ContextProvider = ({ children }) => {
     ])
 
     const dataSite = [
-        {id:0, host_name:'SFM1', current_state:'PENDING'},
-        {id:1, host_name:'SFM2',  current_state:'PENDING'},
-        {id:2, host_name:'VALVULAS1',  current_state:'PENDING'},
-        {id:3, host_name:'VALVULAS2',  current_state:'PENDING'},
-        {id:4, host_name:'VALVULAS3',  current_state:'PENDING'},
-        {id:5, host_name:'SFM3',  current_state:'PENDING'},
+        {id:0, host_name:'SFM1', current_state:4},
+        {id:1, host_name:'SFM2',  current_state:4},
+        {id:2, host_name:'VALVULAS1',  current_state:4},
+        {id:3, host_name:'VALVULAS2',  current_state:4},
+        {id:4, host_name:'VALVULAS3',  current_state:4},
+        {id:5, host_name:'SFM3',  current_state:4},
       ]
 
     const alertData = [

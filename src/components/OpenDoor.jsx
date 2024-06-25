@@ -8,7 +8,7 @@ function OpenDoor() {
 
 const HandleClick = () => {
     const script = document.createElement('script');
-    script.src = "../scritpS/snmpCommand.js";
+    script.src = "./../../public/snmpCommand.js";
     script.async = true;
     document.body.appendChild(script);
 }

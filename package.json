@@ -20,7 +20,8 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
-    "snmp-native": "^1.2.0"
+    "snmp-native": "^1.2.0",
+    "vite-plugin-require": "^1.2.14"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
