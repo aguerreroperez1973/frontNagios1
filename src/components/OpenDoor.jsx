@@ -1,14 +1,10 @@
-//import React from 'react'
 import { Button } from 'react-bootstrap'
-//import useScript from 'hooks/useScript';
-//import snmp from 'snmp-native';
-//import { snmp } from 'net-snmp'
 
 function OpenDoor() {
 
 const HandleClick = () => {
-    const script = document.createElement('script');
-    script.src = "./../../public/snmpCommand.js";
+   const script = document.createElement('script');
+    script.src = "testsnmp3.js";
     script.async = true;
     document.body.appendChild(script);
 }
