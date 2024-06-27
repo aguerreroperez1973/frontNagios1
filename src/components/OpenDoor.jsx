@@ -1,12 +1,14 @@
 import { Button } from 'react-bootstrap'
+import useExternalScripts from '../hooks/useExternalScripts'
 
 function OpenDoor() {
 
 const HandleClick = () => {
-   const script = document.createElement('script');
-    script.src = "testsnmp3.js";
+  useExternalScripts("/commandOK.cjs")
+  /* const script = document.createElement('script');
+    script.src = "/commandOK.cjs";
     script.async = true;
-    document.body.appendChild(script);
+    document.body.appendChild(script);*/
 }
 
   return (

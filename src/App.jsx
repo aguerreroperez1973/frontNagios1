@@ -3,7 +3,7 @@
 import './App.css'
 import NavbarComponent from './components/NavbarComponent';
 import Home from './views/Home';
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Host from './views/Host';
 import NotFound from './views/NotFound';
 import RtuPage from './views/rtupage';
